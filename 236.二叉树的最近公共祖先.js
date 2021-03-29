@@ -19,6 +19,8 @@
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function(root, p, q) {
+  // 从根节点遍历，递归向左右子树查询节点信息
+  // 递归终止条件：如果当前节点为空或等于 p 或 q，则返回当前节点
   if (root == null || root == p || root == q) return root
 
   const left = lowestCommonAncestor(root.left, p, q)

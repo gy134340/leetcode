@@ -9,6 +9,9 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+// 其实就是从数组倒着查找，找到nums[i] 比nums[i+1]小的时候，
+// 就将nums[i]跟nums[i+1]到nums[nums.length - 1]当中找到一个最小的比nums[i]大的元素交换。
+// 交换后，再把nums[i+1]到nums[nums.length-1]排序，就ok了
 var nextPermutation = function(nums) {
 
 
@@ -44,6 +47,7 @@ var nextPermutation = function(nums) {
     nums[j] = temp;
   }
 
+  // （剩下的元素直接升序）
   // 最后我们只需要将剩下的元素从左到右，依次填入当前最小的元素就可以保证是大于当前排列的最小值了
   reverseRange(nums, i + 1, nums.length - 1);
 

@@ -18,6 +18,8 @@
  * @param {number[]} inorder
  * @return {TreeNode}
  */
+// preorder => root -> left, right
+// inorder => left -> root -> right
 var buildTree = function(preorder, inorder) {
 
   const generate = (preorder, inorder) => {
@@ -29,6 +31,7 @@ var buildTree = function(preorder, inorder) {
 
 
     // 找到中序遍历的 index
+    // left length
     const index = inorder.findIndex(item => item === preorder[0])
 
     // preorder 数组的第1项[9]（左子树的大小）和后3项[20, 15, 7]（右子树的大小）又分别是左子树和右子树的前序遍历

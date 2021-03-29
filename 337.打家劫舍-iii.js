@@ -33,8 +33,12 @@ var rob = function(root) {
     dfs(node.left)
     dfs(node.right)
     
+    // 选中当前节点，不选中左右子节点
     f.set(node, node.val + (g.get(node.left) || 0) + (g.get(node.right) || 0));
-    g.set(node, Math.max(f.get(node.left) || 0, g.get(node.left) || 0) + Math.max(f.get(node.right) || 0, g.get(node.right) || 0));
+
+    // 不选中当前节点，Math.max(选中左节点, 不选左节点）+ Math.max(选中右节点, 不选右节点）
+    g.set(node, Math.max(f.get(node.left) || 0, g.get(node.left) || 0) +
+      Math.max(f.get(node.right) || 0,  g.get(node.right) || 0));
 
   }
 
